@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+    <script src='checkbox.jquery.js'></script>
+    <script>
+    $(document).ready(function() {
+      $('input[type=checkbox]').add($('input[type=radio]')).prettyCheckbox(
+        function(checked) {
+          // optional callback, 'this' is the input element
+          $('#output').text($(this).attr('id') + ' was ' + (checked? 'checked' : 'unchecked'));
+      });
+    });
+    </script>
+    <style>
+    .checkbox {
+      height: 16px;
+      width: 16px;
+      vertical-align: middle;
+    }
+    .checkbox.checked {
+      background-image: url('img/dialog-ok.png');
+    }
+    .checkbox.unchecked {
+      background-image: url('img/dialog-cancel.png');
+    }
+
+    .alternate .checkbox {
+      background-image: none;
+      border-radius: 0.25em;
+      border: 1px solid black;
+      
+    }
+    .alternate .checkbox.hover {
+      border-color: #3333FF;
+    }
+
+    .alternate .checkbox.checked {
+      background-color: #777;
+    }
+
+    .alternate .checkbox.unchecked {
+      background-color: #eee;
+    }
+    </style>
+  </head>
+  <body>
+
+  <h1> Pretty Checkbox Styling Demonstration </h1>
+  <p> For calling procedure and CSS, see source code - it's very simple.</p>
+  
+  
+  <h2> Checkbox</h2>
+  <p> Simple styling using images </p>
+  <input type='checkbox' id='c1'></input><label for='c1'> #1 </label>
+  <input type='checkbox' id='c2'></input><label for='c2'> #2 </label>
+
+  <h2> Radio </h2>
+  <h3> Group #1 </h3>
+  <p>Alternate styling, using CSS only - no images</p>
+  <div class='alternate'>
+    <input name='g1' type='radio' id='g1_1'></input> <label for='g1_1'> #1 </label>
+    <input name='g1' type='radio' id='g1_2'></input> <label for='g1_2'> #2 </label>
+  </div>
+
+  <h3> Group #2 </h3>
+  <input name='g2' type='radio' id='g2_1'></input> <label for='g2_1'> #1 </label> <br/>
+  <input name='g2' type='radio' id='g2_2'></input> <label for='g2_2'> #2 </label> <br/>
+  <input name='g2' type='radio' id='g2_3'></input> <label for='g2_3'>#3 </label> <br/>
+
+  <div id='output' style='margin-top:2em'></div>
+  </body>
+</html>
