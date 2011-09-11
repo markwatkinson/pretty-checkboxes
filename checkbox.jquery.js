@@ -21,7 +21,7 @@
        callback.call(this, $(this).is(':checked'));
     }
 
-    $(this).each(function() {
+    return $(this).each(function() {
       var $el = $(this), // the original checkbox. We keep this, so the form
                          // still works properly, and we use it as the base
                          // is/isn't clicked element.
